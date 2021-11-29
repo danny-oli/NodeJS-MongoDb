@@ -74,6 +74,22 @@ node run dev
 
 Pronto! Agora, sua API será executada de maneira local na sua máquina utilizando a PORT 3001.        
 
+Conforme requisitado, foi realiado deploy da API utilizando o serviço HEROKU.
+Url: https://danny-nodejs-mongodb-api.herokuapp.com/.
+
+Chamada de teste realizada em 29/11/21 às 02:50:
+endpoint: https://danny-nodejs-mongodb-api.herokuapp.com/api/user/findUsers
+result: 
+[
+  {
+    "_id": "61a4556e8d08303e14c0ae7c",
+    "username": "admin",
+    "password": "$2b$10$3cl4YcYw8EGOZHq9hL1vc.yMUkwNc.xBmp/8CIJAMyEH146nrOzwm",
+    "createdAt": "2021-11-29T04:22:06.432Z",
+    "updatedAt": "2021-11-29T04:22:06.432Z",
+    "__v": 0
+  }
+]
 
 
-Fiquem à vontade em usar ou até mesmo testar ambas as conexões!! :)  
+Fiquem à vontade para testar ambas as conexões!! :)  
