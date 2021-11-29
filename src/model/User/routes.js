@@ -2,12 +2,10 @@ const AuthValidation = require("../../middleware/AuthValidation");
 const UserController = require("./UserController");
 
 module.exports = (app) => {
-
-  app.get("/getUsers", AuthValidation, UserController.list);
-  app.post("/create", UserController.create);
-  //   app.get("/find/:id", AuthValidation, controller.findById);
-  // app.put('/:id', controller.update);
-  //   app.delete("/delete/:id", AuthValidation, controller.deleteOne);
-
+  app.get("/findUsers", AuthValidation, UserController.list);
+  app.post("/createUser", UserController.create);
+  app.get("/findUser/:id", AuthValidation, UserController.findById);
+  app.put("/updateUser/:id", AuthValidation, UserController.update);
+  app.delete("/deleteUser/:id", AuthValidation, UserController.deleteOne);
   return app;
 };

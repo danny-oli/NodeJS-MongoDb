@@ -5,7 +5,7 @@ module.exports = (app) => {
 
   app.get('/', AuthValidation, SubstanceController.list);
   app.post('/createSubstancec', AuthValidation, SubstanceController.create)
-  // app.get('/find/:id', SubstanceController.findOne);
+  app.get('/find/:id', SubstanceController.findById);
   // route.put('/:id', controller.update);
   // route.delete('/:id', controller.deleteOne);
   //   app.get("/find/:id", AuthValidation, controller.findById);

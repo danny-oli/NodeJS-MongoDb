@@ -39,20 +39,22 @@ async function create(requestBody) {
   }
 }
 
-// async function findById(id) {
-//   try {
-//     const user = await this.userModel.findById(id);
-//     if (!user)
-//       throw new CustomError({
-//         code: "NOT_FOUND",
-//         message: "User not found",
-//         status: 404,
-//       });
-//     return user;
-//   } catch (error) {
-//     return error;
-//   }
-// }
+async function findById(id) {
+  try {
+    const substance = await Substance.findById(id);
+    if (!substance)
+      throw {
+        error: {
+          code: "NOT_FOUND",
+          message: "User not found",
+          status: 404,
+        },
+      };
+    return substance;
+  } catch (error) {
+    return error;
+  }
+}
 
 async function findByName(name) {
   try {
@@ -71,27 +73,6 @@ async function findByName(name) {
   }
 }
 
-// async update(id: string, obj: IUser): Promise<IUser> {
-
-//   await this.userModel.update(id, obj);
-//   return this.findOne(id);
-
-// }
-
-// async function deleteOne(id) {
-//   try {
-//     const user = await this.userModel.findById(id);
-//     if (!user)
-//       throw new CustomError({
-//         code: "NOT_FOUND",
-//         message: "User not found",
-//         status: 404,
-//       });
-//     return this.userModel.findByIdAndDelete(id);
-//   } catch (error) {
-//     return error;
-//   }
-// }
 
 async function runSubstanceValidation(toxinTest) {
   try {
@@ -122,4 +103,4 @@ async function runSubstanceValidation(toxinTest) {
   }
 }
 
-module.exports = { create, list, findByName, runSubstanceValidation };
+module.exports = { create, list, findByName, findById, runSubstanceValidation };
