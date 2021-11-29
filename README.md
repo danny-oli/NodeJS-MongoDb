@@ -24,12 +24,18 @@ Caso queira testar as API's criadas no projeto, basta clicar no botão abaixo pa
 Abaixo exemplifico as rotas de usuário!
 
   ROTA                    |     HTTP(Verbo)   |      Descrição        | 
----------------------     | ----------------- | --------------------- | 
-/api/user/findUsers       |       GET         | Selecionar Todos      | 
-/api/user/createUser      |       POST        | Criar usuário         | 
-/api/user/findUser/:id    |       GET         | Selecionar Por Id     | 
-/api/user/updateUser/:id  |       PUT         | Atualizar Por Id      |    
-/api/user/deleteUser/:id  |       DELETE      | Excluir Por Id        |
+-------------------------------- | ----------------- | --------------------- | 
+/api/auth/login/                 |       POST        | Login                 | 
+/api/user/findUsers              |       GET         | Selecionar Todos      | 
+/api/user/createUser             |       POST        | Criar usuário         | 
+/api/user/findUser/:id           |       GET         | Selecionar Por Id     | 
+/api/user/updateUser/:id         |       PUT         | Atualizar Por Id      |    
+/api/user/deleteUser/:id         |       DELETE      | Excluir Por Id        |
+/api/substance/createSubstance   |       POST        | Criar Substancia      |
+/api/substance/findSubstances    |       GET         | Selecionar Todas      |
+/api/substance/findSubstance/:id |       GET         | Selecionar por Id     |
+/api/toxinTest/createToxinTest   |       POST        | Criar Toxin Test      |
+/api/toxinTest/findToxinTests    |       GET         | Buscar todos os testes|
 
 ## Executar Localmente
 
