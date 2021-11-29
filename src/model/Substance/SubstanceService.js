@@ -95,7 +95,7 @@ async function findByName(name) {
 
 async function runSubstanceValidation(toxinTest) {
   try {
-    Object.keys(toxinTest).forEach(async (key) => {
+    for (const key of Object.keys(toxinTest)) {
       const substance = await Substance.findOne({ name: key });
 
       if (substance && toxinTest[key] >= substance.limit) {
@@ -105,18 +105,17 @@ async function runSubstanceValidation(toxinTest) {
             (substance) => {
               if (toxinTest[substance.name] >= substance.limit) {
                 toxinTest.result = true;
-                toxinTest.message = `One ore more Enhanceable substances failed on the test.`;
-                console.log(toxinTest)
               }
             }
           );
+        } else {
+          toxinTest.result = true;
         }
-        toxinTest.message = `One ore more substances failed on the test.`;
-        toxinTest.result = true;
       }
-      toxinTest.message = `All substances were approved!.`;
-    });
-    console.log(toxinTest);
+      toxinTest.message = toxinTest.result
+        ? `One ore more Enhanceable substances failed on the test.`
+        : `All substances were approved!.`;
+    }
     return toxinTest;
   } catch (error) {
     return error;

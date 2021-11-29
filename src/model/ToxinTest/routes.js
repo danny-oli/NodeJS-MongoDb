@@ -3,7 +3,7 @@ const ToxinTestController = require("./ToxinTestController");
 
 module.exports = (app) => {
 
-  app.get('/', AuthValidation, ToxinTestController.list);
+  app.get('/getToxinTests', AuthValidation, ToxinTestController.list);
   app.post('/createTT', AuthValidation, ToxinTestController.create);
   // app.get('/find/:id', SubstanceController.findOne);
   // route.put('/:id', controller.update);

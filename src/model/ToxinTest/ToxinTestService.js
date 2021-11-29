@@ -8,7 +8,7 @@ async function list() {
       throw {
         error: {
           code: "NOT_FOUND",
-          message: "No substances found.",
+          message: "No Toxin Tests found.",
           status: 404,
         },
       };
@@ -21,8 +21,16 @@ async function list() {
 
 async function create(requestBody) {
   try {
-    // console.log(requestBody);
     const sampleCode = requestBody["codigo_amostra"];
+    if(sampleCode.length > 8) {
+      throw {
+        error: {
+          code: "BAD_REQUEST",
+          message: "Toxin Test Code must be lesser then 8 characters.",
+          status: 400,
+        },
+      };
+    }
     const toxinTest = await ToxinTest.findOne({ codigo_amostra: sampleCode });
     if (toxinTest) {
       throw {
@@ -34,10 +42,10 @@ async function create(requestBody) {
       };
     }
     
-    const a = await SubstanceService.runSubstanceValidation(requestBody);
-    const newToxinTest = new ToxinTest(a);
-    return newToxinTest;
-    // return requestBody;
+    const validatedToxinTest = await SubstanceService.runSubstanceValidation(requestBody);
+    const newToxinTest = new ToxinTest(validatedToxinTest);
+    console.log(newToxinTest)
+    return newToxinTest.save();
   } catch (error) {
     return error;
   }

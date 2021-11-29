@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ToxinTestSchema = new Schema(
   {
-    codigo_amostra: { type: String, required: true, unique: true, max: 8 },
+    codigo_amostra: { type: String, required: true, unique: true },
     Cocaina: { type: Number },
     Anfetamina: { type: Number },
     Metanfetamina: { type: Number },
