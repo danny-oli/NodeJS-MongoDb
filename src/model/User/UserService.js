@@ -43,8 +43,7 @@ async function create(requestBody) {
 
 async function findById(id) {
   try {
-    console.log(id);
-    const user = await User.findById(id).then((user) => console.log(user)); // Not working??
+    const user = await User.findById(id)
     if (!user)
       throw {
         error: {
