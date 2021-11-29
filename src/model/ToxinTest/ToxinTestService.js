@@ -44,27 +44,11 @@ async function create(requestBody) {
     
     const validatedToxinTest = await SubstanceService.runSubstanceValidation(requestBody);
     const newToxinTest = new ToxinTest(validatedToxinTest);
-    console.log(newToxinTest)
     return newToxinTest.save();
   } catch (error) {
     return error;
   }
 }
-
-// async function findById(id) {
-//   try {
-//     const user = await this.userModel.findById(id);
-//     if (!user)
-//       throw new CustomError({
-//         code: "NOT_FOUND",
-//         message: "User not found",
-//         status: 404,
-//       });
-//     return user;
-//   } catch (error) {
-//     return error;
-//   }
-// }
 
 async function findBySampleCode(sampleCode) {
   try {
@@ -82,27 +66,5 @@ async function findBySampleCode(sampleCode) {
     return error;
   }
 }
-
-// async update(id: string, obj: IUser): Promise<IUser> {
-
-//   await this.userModel.update(id, obj);
-//   return this.findOne(id);
-
-// }
-
-// async function deleteOne(id) {
-//   try {
-//     const user = await this.userModel.findById(id);
-//     if (!user)
-//       throw new CustomError({
-//         code: "NOT_FOUND",
-//         message: "User not found",
-//         status: 404,
-//       });
-//     return this.userModel.findByIdAndDelete(id);
-//   } catch (error) {
-//     return error;
-//   }
-// }
 
 module.exports = { create, list, findBySampleCode };

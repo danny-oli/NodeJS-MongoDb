@@ -24,16 +24,4 @@ const findById = async (req, res) => {
   : res.status(200).json(response)
 }
 
-// export const update = async (req: Request, res: Response) => {
-//   const { id } = req.params
-//   const response = await ToxinTestService.update(id, req.body);
-//   res.json(response)
-// }
-
-// const deleteOne = async (req, res) => {
-//   const { id } = req.params
-//     const response = await ToxinTestService.deleteOne(id);
-//   res.json(response)
-// }
-
 module.exports = { list, create, findById  };

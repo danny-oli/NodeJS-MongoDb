@@ -1,5 +1,3 @@
-// import { plainToClass } from "class-transformer";
-// const CustomError = require("express-handler-errors");
 const Substance = require("./SubstanceSchema");
 
 async function list() {
