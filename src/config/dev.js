@@ -1,3 +1,8 @@
+const dotenv = require("dotenv");
+
+// Config ambient variables
+dotenv.config();
+
 module.exports = {
-  mongoURI:"mongodb+srv://admin:admin@cluster0.q1pzv.mongodb.net/test",
+  mongoURI: process.env.MONGO_URI,
 };
