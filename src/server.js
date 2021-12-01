@@ -5,23 +5,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors()); // header("Access-X")
+// header("Access-X")
+app.use(cors()); 
 
-const router = express.Router();
-
-const userRoutes = require("./model/User/routes")(router);
-const authRoutes = require("./model/Auth/routes")(router);
-const substanceRoutes = require("./model/Substance/routes")(router);
-const toxinTestRoutes = require("./model/ToxinTest/routes")(router);
-
-app.use("/api/user", userRoutes);
-app.use("/api/auth", authRoutes);
-app.use("/api/substance", substanceRoutes);
-app.use("/api/toxinTest", toxinTestRoutes);
-
+// Loading Api routes
+require('./routes/routes')(app) 
 
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log("#### SERVER ONLINE ####");
+  console.log('Server running', { port: PORT, mode: process.env.NODE_ENV });
 });
